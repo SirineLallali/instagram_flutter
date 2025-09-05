@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta/widgets/write_comment.dart';
+import 'package:insta/main.dart';
 
 class CustomButton extends StatefulWidget { 
   final IconData icon;
@@ -26,8 +27,7 @@ class _CustomButtonState extends State<CustomButton> {
       children: [
         IconButton(onPressed: () { 
           if (widget.icon == Icons.comment_outlined){
-            iLiked = false;
-              showModalBottomSheet(
+           showModalBottomSheet(
           context: context,
           isScrollControlled: true,
           builder: (BuildContext context) {
@@ -42,7 +42,7 @@ class _CustomButtonState extends State<CustomButton> {
               height: MediaQuery.of(context).size.height * 0.95, // Set your desired height
               child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: Column(
+                child: Column( //listview
                   children: [
                     Container(
                       width: 40,
@@ -55,14 +55,14 @@ class _CustomButtonState extends State<CustomButton> {
                     SizedBox(height: 15,),
                     Text('Comments', style: TextStyle( fontWeight: FontWeight.bold, fontSize: 23),),
                     SizedBox(height: 20,),
-                     Expanded(child: SingleChildScrollView(child: Column(
-                       children: [
-                         WriteComment(text: 'Hi', user: 'sirine'), 
-                         SizedBox(height: 20,),
-                         WriteComment(text: 'Wow Amazing!', user: 'john_xec'),
-                       ],
-                     ))),
-                     
+                     Expanded(child: ListView.separated(
+                     separatorBuilder: (context, index) => SizedBox(height: 20,),
+                     itemBuilder: (context, index) {
+                     final comment = comments [index];
+                     return WriteComment(comment: comment);
+                     },
+                     itemCount: comments.length,
+                     )),
                   ],
                 ),
               )

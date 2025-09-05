@@ -84,10 +84,21 @@ class Post {
   });
 }
 
+class Comment {
+  final String username;
+  final String text;
+  final String pfpUrl;
+  Comment ({
+    required this.username,
+    required this.text,
+    required this.pfpUrl,
+  });
+}
+
 final List<Post> posts = [
   Post(
         username: 'aacoding_tips', 
-        profilePhoto: 'https://instagram.falg6-2.fna.fbcdn.net/v/t51.2885-19/375701795_1413796569256173_3022531915367641140_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4zNDQuYzIifQ&_nc_ht=instagram.falg6-2.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QFK5wjInvHsEUC8hqsHzFEvddC84_YamMVtv60-x3SVxQIMKmorNg6s78dytEvDKfk&_nc_ohc=YBdj_-edt5IQ7kNvwGRvNaj&_nc_gid=G1y7yIcIbX_w1qsa8RWsQQ&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AfbjSOcTvH-Vp5Rczf0f0gv-jV3njN7KJk1HtaSdZS2edw&oe=68BEAF3A&_nc_sid=7a9f4b', 
+        profilePhoto: 'https://i.insider.com/5fbe98c550e71a0011557672?width=700', 
         publication: 'https://cms-assets.themuse.com/media/lead/01212022-1047259374-coding-classes_scanrail.jpg', 
         likesCount: 1321, 
         commentsCount: 123, 
@@ -97,7 +108,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "flutter_dev",
-        profilePhoto: "https://avatars.githubusercontent.com/u/14101776?s=200&v=4",
+        profilePhoto: 'https://www.daily.co/blog/content/images/2023/07/Flutter-feature.png',
         publication: 'https://thecamerastore.com/cdn/shop/articles/GINAYEOLANDSCAPE-1_800x.jpg?v=1687296669',
         likesCount: 1200,
         commentsCount: 342,
@@ -107,7 +118,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "tech_guru",
-        profilePhoto: "https://i.pravatar.cc/150?img=3",
+        profilePhoto: 'https://posterjack.ca/cdn/shop/articles/Tips_for_Taking_Photos_at_the_Beach_55dd7d25-11df-4acf-844f-a5b4ebeff4df.jpg?v=1738158629&width=1500',
         publication: "https://picsum.photos/500/300?random=3",
         likesCount: 2100,
         commentsCount: 410,
@@ -117,7 +128,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "design_daily",
-        profilePhoto: "https://i.pravatar.cc/150?img=4",
+        profilePhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSabrBZxuW139T0wCclOEZlj8-uf_pZX2gjw&s',
         publication: "https://picsum.photos/500/300?random=4",
         likesCount: 754,
         commentsCount: 98,
@@ -127,7 +138,7 @@ final List<Post> posts = [
           ),
   Post(
         username: "travel_addict",
-        profilePhoto: "https://i.pravatar.cc/150?img=5",
+        profilePhoto: 'https://images.unsplash.com/photo-1497316730643-415fac54a2af?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         publication: "https://picsum.photos/500/300?random=5",
         likesCount: 3021,
         commentsCount: 520,
@@ -137,7 +148,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "foodie_life",
-        profilePhoto: "https://i.pravatar.cc/150?img=6",
+        profilePhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuQGHKexWoNife5mckGZdRl_GbDLwr6xgO7Q&s',
         publication: "https://picsum.photos/500/300?random=6",
         likesCount: 1890,
         commentsCount: 220,
@@ -147,7 +158,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "fitness_pro",
-        profilePhoto: "https://i.pravatar.cc/150?img=7",
+        profilePhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1z3WO2y5h7YkHljxIsvwuOxP21OE_8tnedA&s',
         publication: "https://picsum.photos/500/300?random=7",
         likesCount: 2489,
         commentsCount: 333,
@@ -157,7 +168,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "nature_lover",
-        profilePhoto: "https://i.pravatar.cc/150?img=8",
+        profilePhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_M4wMFN1yfKuYtjd6gy1EIw3PxWGeEoVB6g&s',
         publication: "https://picsum.photos/500/300?random=8",
         likesCount: 4300,
         commentsCount: 620,
@@ -167,7 +178,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "gaming_zone",
-        profilePhoto: "https://i.pravatar.cc/150?img=9",
+        profilePhoto: 'https://iso.500px.com/wp-content/uploads/2016/11/stock-photo-159533631-1500x1000.jpg',
         publication: "https://picsum.photos/500/300?random=9",
         likesCount: 1999,
         commentsCount: 275,
@@ -177,7 +188,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "music_vibes",
-        profilePhoto: "https://i.pravatar.cc/150?img=10",
+        profilePhoto: 'https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp',
         publication: "https://picsum.photos/500/300?random=10",
         likesCount: 2891,
         commentsCount: 411,
@@ -187,7 +198,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "startup_world",
-        profilePhoto: "https://i.pravatar.cc/150?img=11",
+        profilePhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_4B03GXx9gyLSCXQuRcx46nRdlVUd6CCx_g&s',
         publication: "https://picsum.photos/500/300?random=11",
         likesCount: 1200,
         commentsCount: 98,
@@ -197,7 +208,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "artsy_mind",
-        profilePhoto: "https://i.pravatar.cc/150?img=12",
+        profilePhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRXxfn1j1vKFy8yJeBGl2AS6Dcah-lKgHofg&s',
         publication: "https://picsum.photos/500/300?random=12",
         likesCount: 1705,
         commentsCount: 207,
@@ -207,7 +218,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "photography_hub",
-        profilePhoto: "https://i.pravatar.cc/150?img=13",
+        profilePhoto: 'https://png.pngtree.com/thumb_back/fh260/background/20240522/pngtree-abstract-cloudy-background-beautiful-natural-streaks-of-sky-and-clouds-red-image_15684333.jpg',
         publication: "https://picsum.photos/500/300?random=13",
         likesCount: 3400,
         commentsCount: 650,
@@ -217,7 +228,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "sportsmania",
-        profilePhoto: "https://i.pravatar.cc/150?img=14",
+        profilePhoto: 'https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         publication: "https://picsum.photos/500/300?random=14",
         likesCount: 2800,
         commentsCount: 355,
@@ -227,7 +238,7 @@ final List<Post> posts = [
       ),
   Post(
         username: "daily_quotes",
-        profilePhoto: "https://i.pravatar.cc/150?img=15",
+        profilePhoto: 'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2018/10/taking-beautiful-photos-of-nature-2.jpg?resize=1500%2C1000&ssl=1',
         publication: "https://picsum.photos/500/300?random=15",
         likesCount: 1450,
         commentsCount: 187,
@@ -235,5 +246,22 @@ final List<Post> posts = [
         shareCount: 120,
         description: "Believe in yourself ✨💯",
       ),
-  
+];
+
+final List<Comment> comments = [
+  Comment(username: "flutter_dev", text: "Wow! This looks amazing 🔥", pfpUrl: 'https://i.insider.com/5fbe98c550e71a0011557672?width=700'),
+  Comment(username: "aacoding_tips", text: "Great explanation 👌", pfpUrl: 'https://posterjack.ca/cdn/shop/articles/Tips_for_Taking_Photos_at_the_Beach_55dd7d25-11df-4acf-844f-a5b4ebeff4df.jpg?v=1738158629&width=1500'),
+  Comment(username: "design_daily", text: "Love this theme 🎨", pfpUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSabrBZxuW139T0wCclOEZlj8-uf_pZX2gjw&s'),
+  Comment(username: "travel_addict", text: "Take me there 😍", pfpUrl: 'https://www.daily.co/blog/content/images/2023/07/Flutter-feature.png'),
+  Comment(username: "foodie_life", text: "Im hungry now 🍔🍟", pfpUrl: 'https://images.unsplash.com/photo-1497316730643-415fac54a2af?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+  Comment(username: "fitness_pro", text: "Keep grinding 💪", pfpUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuQGHKexWoNife5mckGZdRl_GbDLwr6xgO7Q&s'),
+  Comment(username: "nature_lover", text: "So peaceful 🌿", pfpUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1z3WO2y5h7YkHljxIsvwuOxP21OE_8tnedA&s'),
+  Comment(username: "gaming_zone", text: "GG bro 🎮", pfpUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_M4wMFN1yfKuYtjd6gy1EIw3PxWGeEoVB6g&s'),
+  Comment(username: "music_vibes", text: "This song is stuck in my head 🎶", pfpUrl: 'https://iso.500px.com/wp-content/uploads/2016/11/stock-photo-159533631-1500x1000.jpg'),
+  Comment(username: "startup_world", text: "Lets change the world 🚀", pfpUrl: 'https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp'),
+  Comment(username: "artsy_mind", text: "Beautiful composition ✨", pfpUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_4B03GXx9gyLSCXQuRcx46nRdlVUd6CCx_g&s'),
+  Comment(username: "photography_hub", text: "Perfect lighting 📸", pfpUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRXxfn1j1vKFy8yJeBGl2AS6Dcah-lKgHofg&s'),
+  Comment(username: "sportsmania", text: "What a game! ⚽🏀", pfpUrl: 'https://png.pngtree.com/thumb_back/fh260/background/20240522/pngtree-abstract-cloudy-background-beautiful-natural-streaks-of-sky-and-clouds-red-image_15684333.jpg'),
+  Comment(username: "daily_quotes", text: "Needed this today 🙌", pfpUrl: 'https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+  Comment(username: "tech_guru", text: "AI is the future 🤖", pfpUrl: 'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2018/10/taking-beautiful-photos-of-nature-2.jpg?resize=1500%2C1000&ssl=1'),
 ];
