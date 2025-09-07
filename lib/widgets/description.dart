@@ -14,19 +14,22 @@ class _DescriptionState extends State<Description> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: clickMore ? CrossAxisAlignment.end : CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.end ,
       children: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(width: 14,),
-            Text(widget.username, style: TextStyle( fontWeight: FontWeight.bold, fontSize: 18) ,),  
-            SizedBox(width: 5 ,),
             Container(
-              constraints: BoxConstraints( maxWidth: clickMore ? 250 : 200) ,
-              child: Text(widget.description, 
-              style: TextStyle(fontSize: 17 ),
-              overflow: clickMore ? TextOverflow.visible : TextOverflow.ellipsis,)),
+              constraints: BoxConstraints( maxWidth:300) ,
+              child: Text.rich(TextSpan(
+                children:[ 
+                  TextSpan(text: widget.username, style:TextStyle( fontWeight: FontWeight.bold, fontSize: 18) , ),
+                  WidgetSpan(child: SizedBox(width: 5,)),
+                  TextSpan(text: widget.description, style: TextStyle(fontSize: 17 ), )
+                  ]),
+                   overflow: clickMore ? TextOverflow.visible : TextOverflow.ellipsis,),
+            )
           ],
         ), 
         GestureDetector(onTap:() {

@@ -41,7 +41,7 @@ class _CustomButtonState extends State<CustomButton> {
               ),
               height: MediaQuery.of(context).size.height * 0.95, // Set your desired height
               child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(15),
                 child: Column( //listview
                   children: [
                     Container(
@@ -55,13 +55,27 @@ class _CustomButtonState extends State<CustomButton> {
                     SizedBox(height: 15,),
                     Text('Comments', style: TextStyle( fontWeight: FontWeight.bold, fontSize: 23),),
                     SizedBox(height: 20,),
-                     Expanded(child: ListView.separated(
-                     separatorBuilder: (context, index) => SizedBox(height: 20,),
-                     itemBuilder: (context, index) {
-                     final comment = comments [index];
-                     return WriteComment(comment: comment);
-                     },
-                     itemCount: comments.length,
+                     Expanded(child: FutureBuilder(
+                       future: fetchComments(),
+                       builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                        }
+                       else if (snapshot.hasError) {
+                        return Center(child: Text("Error: ${snapshot.error}"));
+                       }
+                       else{
+                        final comments = snapshot.data ?? [];
+                         return ListView.separated(
+                         separatorBuilder: (context, index) => SizedBox(height: 20,),
+                         itemBuilder: (context, index) {
+                         final comment = comments [index];
+                         return WriteComment(comment: comment);
+                         },
+                         itemCount: comments.length,
+                         );
+                       }
+                       }
                      )),
                   ],
                 ),

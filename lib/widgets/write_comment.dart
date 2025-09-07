@@ -10,6 +10,7 @@ class WriteComment extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,13 +23,18 @@ class WriteComment extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Text(comment.username, style: TextStyle( fontWeight: FontWeight.bold, fontSize: 16) ,),
-                    Text('  3d', style: TextStyle(color: Colors.grey, fontSize: 16),)
-                  ],
+                Container(
+                  constraints: BoxConstraints(maxWidth: 250),
+                  child: Text.rich(
+                    TextSpan(children: [
+                      TextSpan(text:comment.username, style: TextStyle( fontWeight: FontWeight.bold, fontSize: 16)),
+                      TextSpan(text: '  3d', style: TextStyle(color: Colors.grey, fontSize: 16),)
+                    ],
+                      
+                    ),
+                  ),
                 ),
-                Container(constraints: BoxConstraints(maxWidth: 240),child: Text(comment.text, style: TextStyle( fontSize: 18),)),
+                Container(constraints: BoxConstraints(maxWidth: 250),child: Text(comment.text, style: TextStyle( fontSize: 18),)),
                 Row(
                   children: [
                     Text('Reply',  style: TextStyle( fontWeight: FontWeight.bold, fontSize: 16, color: Colors.grey) ,),
